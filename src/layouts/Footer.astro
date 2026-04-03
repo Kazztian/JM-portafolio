@@ -1,0 +1,91 @@
+---
+import ButtonSocial from "@components/buttons/ButtonSocial.astro";
+import iconGithub from "@assets/icons/github.svg";
+import iconLinkedin from "@assets/icons/linkedin.svg";
+import iconWordmark from "@assets/brand/JuanSe.svg";
+import { Image } from "astro:assets";
+
+import {
+    PhoneIcon,
+    EnvelopeIcon,
+    GlobeAmericasIcon,
+    InboxIcon,
+} from "@heroicons/react/24/outline";
+---
+
+<footer class="bg-neutral-100 pt-10">
+    <!-- CONTENIDO PRINCIPAL -->
+    <div
+        class="container mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10 px-4 lg:px-0 items-center lg:items-start"
+    >
+        <!-- IZQUIERDA (LOGO + REDES) -->
+        <div class="flex flex-col items-center lg:items-start gap-6">
+            <Image src={iconWordmark} alt="Juan Madrid" class="w-28" />
+
+            <div class="flex gap-4">
+                <ButtonSocial
+                    href="https://github.com/Kazztian"
+                    icon={iconGithub}
+                />
+                <ButtonSocial
+                    href="https://www.linkedin.com/in/juan-sebastian-madrid-877924276"
+                    icon={iconLinkedin}
+                />
+            </div>
+        </div>
+
+        <!-- CENTRO (CTA) -->
+        <div class="flex flex-col items-center gap-4 text-center">
+            <h4 class="text-neutral-950 font-title text-2xl font-medium">
+                ¿Trabajamos juntos?
+            </h4>
+
+            <a
+                href="/contacto"
+                class="bg-primary-700 text-neutral-100 px-5 py-2 rounded font-semibold hover:bg-primary-800 transition"
+            >
+                Contáctame
+            </a>
+        </div>
+
+        <!-- DERECHA (CONTACTO) -->
+        <div class="flex flex-col gap-3 text-neutral-500 text-sm lg:text-base">
+            <a
+                href="tel:2312312312311"
+                class="flex items-center gap-3 hover:underline"
+            >
+                <PhoneIcon className="h-5 w-5" />
+                3202201315
+            </a>
+
+            <a
+                href="mailto:jonathan.bellofg@gmail.com"
+                class="flex items-center gap-3 hover:underline"
+            >
+                <EnvelopeIcon className="h-5 w-5" />
+                juansmadridgalindogmail.com
+            </a>
+
+            <a
+                href="https://appdeux.com"
+                target="_blank"
+                class="flex items-center gap-3 hover:underline"
+            >
+                <GlobeAmericasIcon className="h-5 w-5" />
+                appdeux.com
+            </a>
+
+            <a href="/blog" class="flex items-center gap-3 hover:underline">
+                <InboxIcon className="h-5 w-5" />
+                Mi blog
+            </a>
+        </div>
+    </div>
+
+    <!-- BARRA INFERIOR -->
+    <div class="bg-primary-700 mt-8">
+        <p class="text-neutral-50 text-center py-2 font-title">
+            Juan Sebastian Madrid - 2026
+        </p>
+    </div>
+</footer>
