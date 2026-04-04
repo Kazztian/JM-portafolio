@@ -9,7 +9,15 @@ interface Props {
 
 const { href, icon } = Astro.props as Props;
 ---
-
-<a href={href} class="inline-block bg-neutral-200 p-1 rounded-full" target="_blank" rel="noopener noreferrer">
-  <Image src={icon} alt="Icono de GitHub" />
+<a 
+  href={href} 
+  class="inline-flex items-center justify-center bg-neutral-200 p-2.5 rounded-full hover:bg-neutral-300 transition"
+  target="_blank" 
+  rel="noopener noreferrer"
+>
+  <Image 
+    src={icon} 
+    alt="Icono social" 
+    class="w-6 h-6"
+  />
 </a>

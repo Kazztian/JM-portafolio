@@ -15,12 +15,10 @@ import {
 
 <footer class="bg-neutral-100 pt-10">
     <!-- CONTENIDO PRINCIPAL -->
-    <div
-        class="container mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10 px-4 lg:px-0 items-center lg:items-start"
-    >
+    <div class="container mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10 px-4 lg:px-0 lg:pl-24 xl:pl-40">
         <!-- IZQUIERDA (LOGO + REDES) -->
-        <div class="flex flex-col items-center lg:items-start gap-6">
-            <Image src={iconWordmark} alt="Juan Madrid" class="w-28" />
+        <div class="flex flex-col items-center lg:items-start gap-4">
+            <Image src={iconWordmark} alt="Juan Madrid" class="w-24 lg:w-32" />
 
             <div class="flex gap-4">
                 <ButtonSocial
@@ -35,7 +33,7 @@ import {
         </div>
 
         <!-- CENTRO (CTA) -->
-        <div class="flex flex-col items-center gap-4 text-center">
+       <div class="flex flex-col items-center gap-4 text-center lg:-ml-20 xl:-ml-28">
             <h4 class="text-neutral-950 font-title text-2xl font-medium">
                 ¿Trabajamos juntos?
             </h4>
@@ -49,7 +47,7 @@ import {
         </div>
 
         <!-- DERECHA (CONTACTO) -->
-        <div class="flex flex-col gap-3 text-neutral-500 text-sm lg:text-base">
+        <div class="flex flex-col gap-3 text-neutral-600 text-sm lg:text-base">
             <a
                 href="tel:2312312312311"
                 class="flex items-center gap-3 hover:underline"
