@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
     /*Tipografias de google en layaout estan los links*/
     --font-title: Poppins, sans-serif;

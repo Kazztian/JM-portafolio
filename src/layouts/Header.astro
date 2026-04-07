@@ -10,7 +10,7 @@ import { Image } from "astro:assets";
 import imgWordmark from "../assets/brand/JuanSe.svg";
 ---
 
-<header class="bg-neutral-50 flex items-center justify-center shadow">
+<header  class="bg-neutral-50 dark:bg-neutral-950 flex items-center justify-center shadow">
     <div class="container mx-auto px-4 lg:px-0 lg:pl-24 xl:pl-40 relative flex items-center justify-between gap-4 lg:py-4">
         <div class="lg:hidden">
             <Bars3Icon
@@ -27,30 +27,30 @@ import imgWordmark from "../assets/brand/JuanSe.svg";
     <Image class="h-12 w-auto" src={imgWordmark} alt="Juan Madrid" />
 </div>
 
-        <nav
-            id="navigator-menu"
-            class="absolute left-0 right-0 top-16
-  transform -translate-y-[150%]
-  lg:left-1/2 lg:-translate-x-1/2
-  lg:top-1/2 lg:-translate-y-1/2
-  flex flex-col items-center justify-center
-  shadow lg:shadow-none p-6 py-8 lg:p-0 lg:py-0
-  transition-transform duration-300 ease-in-out
-  lg:transition-none
-  lg:absolute lg:w-auto
-  bg-neutral-50"
-        >
-            <ul
-                class="flex flex-col lg:flex-row items-center justify-center gap-8
-    [&>li]:text-neutral-950 [&>li]:w-28 lg:[&>li]:text-center
-    font-text font-medium text-xl"
-            >
-                <li><a href="/">Inicio</a></li>
-                <li><a href="/projects">Proyectos</a></li>
-                <li><a href="/blog">Blog</a></li>
-                <li><a href="/contacto">Contacto</a></li>
-            </ul>
-        </nav>
+       <nav
+    id="navigator-menu"
+    class="absolute left-0 right-0 top-16
+transform -translate-y-[150%]
+lg:left-1/2 lg:-translate-x-1/2
+lg:top-1/2 lg:-translate-y-1/2
+flex flex-col items-center justify-center
+shadow lg:shadow-none p-6 py-8 lg:p-0 lg:py-0
+transition-transform duration-300 ease-in-out
+lg:transition-none
+lg:absolute lg:w-auto"
+>
+    <ul
+        class="flex flex-col lg:flex-row items-center justify-center gap-8
+[&>li]:text-neutral-950 dark:[&>li]:text-white
+[&>li]:w-28 lg:[&>li]:text-center
+font-text font-medium text-xl"
+    >
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/projects">Proyectos</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/contacto">Contacto</a></li>
+    </ul>
+</nav>
 
         <div class="flex items-center gap-4 lg:w-[186px] justify-end">
             <button class="rounded-full size-8 bg-neutral-100">
@@ -58,10 +58,11 @@ import imgWordmark from "../assets/brand/JuanSe.svg";
             </button>
 
             <button
-                class="rounded-full size-8 bg-neutral-100 flex items-center justify-center"
+            id="theme-toggle"
+                class="rounded-full size-8 bg-neutral-100  dark:bg-neutral-400 hover:cursor-pointer flex items-center justify-center"
             >
                 <MoonIcon className="text-neutral-400 size-6" />
-            </button>
+                <SunIcon className="absolute size-6 text-neutral-100 hidden dark:block" /> </button>
         </div>
     </div>
 </header>
@@ -87,5 +88,12 @@ import imgWordmark from "../assets/brand/JuanSe.svg";
 
         navigatorMenu.classList.remove("translate-y-0");
         navigatorMenu.classList.add("-translate-y-[150%]");
+    });
+
+    const themeToggle = document.querySelector("#theme-toggle");
+    const html = document.querySelector("html");
+
+    themeToggle?.addEventListener("click", () => {
+        html?.classList.toggle("dark");
     });
 </script>
