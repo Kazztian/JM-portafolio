@@ -1,35 +1,44 @@
 ---
 import {
-    Bars3Icon,
-    MoonIcon,
-    SunIcon,
-    XMarkIcon,
+  Bars3Icon,
+  MoonIcon,
+  SunIcon,
+  XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { Image } from "astro:assets";
 
 import imgWordmark from "../assets/brand/JuanSe.svg";
+
+import LanguagePicker from "../layouts/LanguagePicker.astro";
+
+import { getLangFromUrl, useTranslations, useTranslatedPath } from "@i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatedPath = useTranslatedPath(lang);
 ---
 
-<header  class="bg-neutral-50 dark:bg-neutral-950 flex items-center justify-center shadow">
-    <div class="container mx-auto px-4 lg:px-0 lg:pl-24 xl:pl-40 relative flex items-center justify-between gap-4 lg:py-4">
-        <div class="lg:hidden">
-            <Bars3Icon
-                id="menu-icon"
-                className="text-neutral-900 size-8 lg:hidden"
-            />
-            <XMarkIcon
-                id="close-icon"
-                className="text-neutral-900 hidden size-8 lg:hidden"
-            />
-        </div>
+<header
+  class="bg-neutral-50 dark:bg-neutral-900 flex items-center justify-center shadow"
+>
+  <div
+    class="container mx-auto px-4 lg:px-0 lg:pl-24 xl:pl-40 relative flex items-center justify-between gap-4 lg:py-4"
+  >
+    <div class="lg:hidden">
+      <Bars3Icon id="menu-icon" className="text-neutral-900 size-8 lg:hidden" />
+      <XMarkIcon
+        id="close-icon"
+        className="text-neutral-900 hidden size-8 lg:hidden"
+      />
+    </div>
 
-        <div class="flex items-center">
-    <Image class="h-12 w-auto" src={imgWordmark} alt="Juan Madrid" />
-</div>
+    <div class="flex items-center">
+      <Image class="h-12 w-auto" src={imgWordmark} alt="Juan Madrid" />
+    </div>
 
-       <nav
-    id="navigator-menu"
-    class="absolute left-0 right-0 top-16
+    <nav
+      id="navigator-menu"
+      class="absolute left-0 right-0 top-16
 transform -translate-y-[150%]
 lg:left-1/2 lg:-translate-x-1/2
 lg:top-1/2 lg:-translate-y-1/2
@@ -38,62 +47,64 @@ shadow lg:shadow-none p-6 py-8 lg:p-0 lg:py-0
 transition-transform duration-300 ease-in-out
 lg:transition-none
 lg:absolute lg:w-auto"
->
-    <ul
+    >
+      <ul
         class="flex flex-col lg:flex-row items-center justify-center gap-8
 [&>li]:text-neutral-950 dark:[&>li]:text-white
 [&>li]:w-28 lg:[&>li]:text-center
 font-text font-medium text-xl"
-    >
-        <li><a href="/">Inicio</a></li>
-        <li><a href="/projects">Proyectos</a></li>
-        <li><a href="/blog">Blog</a></li>
-        <li><a href="/contacto">Contacto</a></li>
-    </ul>
-</nav>
+      >
+        <li><a href={translatedPath("/")}>{t("nav.home")}</a></li>
+        <li><a href={translatedPath("/projects")}>{t("nav.projects")}</a></li>
+        <li><a href={translatedPath("/blog")}>{t("nav.blog")}</a></li>
+        <li><a href={translatedPath("/about")}>{t("nav.about")}</a></li>
+        <li><a href={translatedPath("/contacto")}>{t("nav.contact")}</a></li>
+      </ul>
+    </nav>
 
-        <div class="flex items-center gap-4 lg:w-[186px] justify-end">
-            <button class="rounded-full size-8 bg-neutral-100">
-                <span class="text-neutral-500 font-text text-base"> ES </span>
-            </button>
+    <div class="flex items-center gap-4 lg:w-[186px] justify-end">
+        <LanguagePicker />
 
-            <button
-            id="theme-toggle"
-                class="rounded-full size-8 bg-neutral-100  dark:bg-neutral-400 hover:cursor-pointer flex items-center justify-center"
-            >
-                <MoonIcon className="text-neutral-400 size-6" />
-                <SunIcon className="absolute size-6 text-neutral-100 hidden dark:block" /> </button>
-        </div>
+      <button
+        id="theme-toggle"
+        class="rounded-full size-8 bg-neutral-100 dark:bg-neutral-400 hover:cursor-pointer flex items-center justify-center"
+      >
+        <MoonIcon className="text-neutral-400 size-6" />
+        <SunIcon
+          className="absolute size-6 text-neutral-100 hidden dark:block"
+        />
+      </button>
     </div>
+  </div>
 </header>
 
 <script is:inline>
-    const barsIcon = document.querySelector("#menu-icon");
-    const closeIcon = document.querySelector("#close-icon");
-    const navigatorMenu = document.querySelector("#navigator-menu");
+  const barsIcon = document.querySelector("#menu-icon");
+  const closeIcon = document.querySelector("#close-icon");
+  const navigatorMenu = document.querySelector("#navigator-menu");
 
-    // Abrir
-    barsIcon?.addEventListener("click", () => {
-        barsIcon.classList.add("hidden");
-        closeIcon.classList.remove("hidden");
+  // Abrir
+  barsIcon?.addEventListener("click", () => {
+    barsIcon.classList.add("hidden");
+    closeIcon.classList.remove("hidden");
 
-        navigatorMenu.classList.remove("-translate-y-[150%]");
-        navigatorMenu.classList.add("translate-y-0");
-    });
+    navigatorMenu.classList.remove("-translate-y-[150%]");
+    navigatorMenu.classList.add("translate-y-0");
+  });
 
-    // Cerrar
-    closeIcon?.addEventListener("click", () => {
-        closeIcon.classList.add("hidden");
-        barsIcon.classList.remove("hidden");
+  // Cerrar
+  closeIcon?.addEventListener("click", () => {
+    closeIcon.classList.add("hidden");
+    barsIcon.classList.remove("hidden");
 
-        navigatorMenu.classList.remove("translate-y-0");
-        navigatorMenu.classList.add("-translate-y-[150%]");
-    });
+    navigatorMenu.classList.remove("translate-y-0");
+    navigatorMenu.classList.add("-translate-y-[150%]");
+  });
 
-    const themeToggle = document.querySelector("#theme-toggle");
-    const html = document.querySelector("html");
+  const themeToggle = document.querySelector("#theme-toggle");
+  const html = document.querySelector("html");
 
-    themeToggle?.addEventListener("click", () => {
-        html?.classList.toggle("dark");
-    });
+  themeToggle?.addEventListener("click", () => {
+    html?.classList.toggle("dark");
+  });
 </script>
