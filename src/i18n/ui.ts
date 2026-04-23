@@ -14,6 +14,10 @@ export const ui = {
     "nav.blog": "Blog",
     "nav.about": "Acerca de",
     "nav.contact": "Contacto",
+
+    "footer.cta": "¿Trabajamos juntos?",
+    "footer.contact": "Contáctame",
+    "footer.blog": "Mi blog",
   },
   en: {
     "nav.home": "Home",
@@ -21,5 +25,9 @@ export const ui = {
     "nav.blog": "Blog",
     "nav.about": "About",
     "nav.contact": "Contact",
+
+    "footer.cta": "Shall we work together?",
+    "footer.contact": "Contact me",
+    "footer.blog": "My blog",
   },
 };
