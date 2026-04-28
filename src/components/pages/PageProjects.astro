@@ -1,0 +1,50 @@
+---
+import { getCollection, getEntry } from "astro:content";
+import BannerSmall from "@components/banners/BannerSmall.astro";
+import { Image } from "astro:assets";
+
+import { getLangFromUrl } from "@i18n/utils";
+
+// Detectar idioma actual
+const lang = getLangFromUrl(Astro.url);
+
+// Obtener todos los proyectos
+const allProjects = await getCollection("projects");
+
+// Filtrar solo idioma actual
+const currentProjects = allProjects.filter((project) =>
+  project.id.startsWith(`${lang}/`)
+);
+---
+
+<BannerSmall title="Mis Proyectos" />
+
+<section>
+  <div>
+    <h3>Categorias</h3>
+  </div>
+
+ <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  {currentProjects.map((project) => (
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4 
+                transition-all duration-300 ease-in-out
+                hover:-translate-y-2 hover:shadow-2xl">
+      <a href={project.data.url} class="block">
+        <Image 
+          src={project.data.cover} 
+          alt={project.data.title} 
+          class="w-full h-48 object-cover rounded-lg" 
+        />
+
+        <h2 class="font-title text-xl font-bold mt-4 text-gray-900 dark:text-gray-100">
+          {project.data.title}
+        </h2>
+
+        <p class="text-gray-600 dark:text-gray-300 mt-2">
+          {project.data.description}
+        </p>
+      </a>
+    </div>
+  ))}
+</div>
+</section>
