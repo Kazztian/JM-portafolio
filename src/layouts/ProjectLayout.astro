@@ -1,0 +1,112 @@
+---
+import type { ImageMetadata } from "astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+/* 🔹 Tipado */
+interface Project {
+  title: string;
+  description: string;
+  cover?: ImageMetadata;
+  techs?: string[];
+  github?: string;
+  demo?: string;
+}
+
+/* 🔹 Props */
+interface Props {
+  project: any;
+}
+
+const { project } = Astro.props;
+
+/* 🔹 Soporte dual (IMPORTANTE) */
+const data = project?.data || project;
+---
+
+<BaseLayout title={data.title}>
+ 
+  <section class="max-w-5xl mx-auto px-6 py-16 text-gray-900 dark:text-gray-100">
+
+    {/* 🔹 HEADER */}
+    <div class="mb-10">
+      <h1 class="font-title text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
+        {data.title}
+      </h1>
+
+      <p class="text-lg text-gray-600 dark:text-gray-300">
+        {data.description}
+      </p>
+    </div>
+
+    {/* 🔹 IMAGEN */}
+    {
+      data.cover && (
+        <img
+          src={data.cover.src || data.cover}
+          alt={data.title}
+          class="w-full rounded-xl mb-12 shadow-lg"
+        />
+      )
+    }
+
+    {/* 🔹 TECNOLOGÍAS */}
+    {
+      data.techs && (
+        <div class="flex flex-wrap gap-2 mb-12">
+          {data.techs.map((tech: string) => (
+            <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-sm px-3 py-1 rounded-full">
+              {tech}
+            </span>
+          ))}
+        </div>
+      )
+    }
+
+    {/* 🔹 BOTONES */}
+    <div class="flex flex-wrap gap-4 mb-12">
+      {
+        data.github && (
+          <a
+            href={data.github}
+            target="_blank"
+            class="bg-black dark:bg-white text-white dark:text-black px-5 py-2 rounded-lg hover:opacity-80 transition"
+          >
+            GitHub
+          </a>
+        )
+      }
+
+      {
+        data.demo && (
+          <a
+            href={data.demo}
+            target="_blank"
+            class="border border-gray-400 dark:border-gray-600 px-5 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+          >
+            Demo
+          </a>
+        )
+      }
+    </div>
+
+    {/* 🔹 CONTENIDO DEL PROYECTO */}
+    <div class="prose prose-gray dark:prose-invert max-w-none mb-16">
+      <slot />
+    </div>
+
+    {/* 🔹 VOLVER */}
+    <div class="mt-10">
+      <a
+        href="/projects"
+        class="text-sm text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition"
+      >
+        ← Volver a proyectos
+      </a>
+    </div>
+
+  </section>
+
+  {/* 🔹 FOOTER (comentarios u otros) */}
+  <slot name="footer" />
+
+</BaseLayout>

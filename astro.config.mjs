@@ -5,6 +5,8 @@ import tailwindcss from '@tailwindcss/vite';
 
 import react from '@astrojs/react';
 
+import db from '@astrojs/db';
+
 // https://astro.build/config
 export default defineConfig({
   output: 'server',
@@ -12,5 +14,5 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
 
-  integrations: [react()]
+  integrations: [react(), db()]
 });
