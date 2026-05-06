@@ -1,4 +1,5 @@
 ---
+id: "2"
 title: "Personal Portfolio"
 description: "Professional web portfolio designed to showcase projects, skills, and experience with a modern and interactive style."
 publishDate: 2026-04-24

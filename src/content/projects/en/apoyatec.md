@@ -1,4 +1,5 @@
 ---
+id: "1"
 title: "Margaunt"
 description: "Digital platform focused on modern solutions for business management, process automation, and professional web presence."
 publishDate: 2026-04-24

@@ -1,4 +1,5 @@
 ---
+id: "2"
 title: "Portafolio Personal"
 description: "Portafolio web profesional diseñado para mostrar proyectos, habilidades y experiencia con una imagen moderna e interactiva."
 publishDate: 2026-04-24
