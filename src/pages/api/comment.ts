@@ -1,6 +1,7 @@
 import { db, Comment, Author } from "astro:db";
+import type { APIContext } from "astro";
 
-export async function POST({ request, redirect }) {
+export async function POST({ request, redirect }: APIContext) {
   const formData = await request.formData();
 
   const name = formData.get("name");
