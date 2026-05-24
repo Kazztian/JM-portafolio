@@ -27,9 +27,63 @@ const filteredProjects = selectedCategory
 <BannerSmall title={lang === "en" ? "My Projects" : "Mis Proyectos"} />
 
 <section class="px-6 py-12 max-w-7xl mx-auto">
+  {/* Mobile Category Filter - Custom Dropdown */}
+  <div class="lg:hidden mb-8 relative">
+    <button
+      id="category-dropdown-toggle"
+      class="w-full px-4 py-3 rounded-lg border-2 border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white font-semibold cursor-pointer flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+    >
+      <span id="category-dropdown-label">
+        {selectedCategory
+          ? allCategories.find((c) => c.data.id === selectedCategory)?.data.name || (lang === "en" ? "All Categories" : "Todas las Categorías")
+          : lang === "en" ? "All Categories" : "Todas las Categorías"}
+      </span>
+      <svg class="w-5 h-5 transition-transform" id="category-dropdown-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+      </svg>
+    </button>
+
+    {/* Dropdown Menu */}
+    <div
+      id="category-dropdown-menu"
+      class="absolute top-full left-0 right-0 mt-2 bg-white dark:bg-gray-800 border-2 border-gray-700 rounded-lg shadow-lg hidden z-40 overflow-hidden"
+    >
+      <a
+        href={`${lang === "en" ? "/en" : ""}/projects`}
+        class={`block w-full px-4 py-3 text-left font-semibold transition-colors ${
+          !selectedCategory
+            ? "bg-gray-700 text-white"
+            : "text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+        }`}
+        data-category="all"
+      >
+        {lang === "en" ? "All Categories" : "Todas las Categorías"}
+      </a>
+
+      {allCategories.map((category) => (
+        <a
+          href={`${lang === "en" ? "/en" : ""}/projects?category=${category.data.id}`}
+          class={`block w-full px-4 py-3 text-left font-semibold transition-all ${
+            selectedCategory === category.data.id
+              ? "text-white"
+              : "text-gray-900 dark:text-white"
+          }`}
+          style={`
+            background-color: ${selectedCategory === category.data.id ? category.data.color : "transparent"};
+          `}
+          data-category={category.data.id}
+          onmouseover={`this.style.backgroundColor='${category.data.color}'; this.style.color='white'; this.style.opacity='0.9';`}
+          onmouseout={`this.style.backgroundColor='${selectedCategory === category.data.id ? category.data.color : "transparent"}'; this.style.color='${selectedCategory === category.data.id ? "white" : ""}'; this.style.opacity='1';`}
+        >
+          {category.data.name}
+        </a>
+      ))}
+    </div>
+  </div>
+
   <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
-    {/* Sidebar - Categories */}
-    <div class="flex flex-col gap-4">
+    {/* Sidebar - Categories (Hidden on Mobile) */}
+    <div class="hidden lg:flex flex-col gap-4 relative z-10">
       <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2">
         {lang === "en" ? "Categories" : "Categorías"}
       </h3>
@@ -129,3 +183,35 @@ const filteredProjects = selectedCategory
     </div>
   </div>
 </section>
+
+<script is:inline>
+  // Category Dropdown Toggle
+  const dropdownToggle = document.getElementById('category-dropdown-toggle');
+  const dropdownMenu = document.getElementById('category-dropdown-menu');
+  const dropdownArrow = document.getElementById('category-dropdown-arrow');
+
+  if (dropdownToggle && dropdownMenu) {
+    dropdownToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      dropdownMenu.classList.toggle('hidden');
+      dropdownArrow.classList.toggle('rotate-180');
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!dropdownToggle.contains(e.target) && !dropdownMenu.contains(e.target)) {
+        dropdownMenu.classList.add('hidden');
+        dropdownArrow.classList.remove('rotate-180');
+      }
+    });
+
+    // Close dropdown when an option is clicked
+    const dropdownLinks = dropdownMenu.querySelectorAll('a');
+    dropdownLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        dropdownMenu.classList.add('hidden');
+        dropdownArrow.classList.remove('rotate-180');
+      });
+    });
+  }
+</script>
