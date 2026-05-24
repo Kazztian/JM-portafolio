@@ -9,7 +9,7 @@ techs:
   - Tailwind CSS
   - TypeScript
   - i18n
-category: "Portafolio y Marca Personal"
+category: ["web"]
 url: "https://midominio.com/portfolio"
 ---
 

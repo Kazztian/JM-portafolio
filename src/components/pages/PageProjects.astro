@@ -1,50 +1,131 @@
 ---
 import { getCollection } from "astro:content";
 import BannerSmall from "@components/banners/BannerSmall.astro";
+import ButtonCategory from "@components/buttons/ButtonCategory.astro";
 import { Image } from "astro:assets";
 import { getLangFromUrl } from "@i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 
 const allProjects = await getCollection("projects");
+const allCategories = await getCollection("categoriesProjects");
 
 const currentProjects = allProjects.filter((project) =>
   project.id.startsWith(`${lang}/`)
 );
+
+// Get the selected category from URL params if available
+const selectedCategory = Astro.url.searchParams.get("category");
+
+const filteredProjects = selectedCategory
+  ? currentProjects.filter((project) =>
+      project.data.category.includes(selectedCategory)
+    )
+  : currentProjects;
 ---
 
-<BannerSmall title="Mis Proyectos" />
+<BannerSmall title={lang === "en" ? "My Projects" : "Mis Proyectos"} />
 
-<section>
-  <div>
-    <h3>Categorias</h3>
-  </div>
+<section class="px-6 py-12 max-w-7xl mx-auto">
+  <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+    {/* Sidebar - Categories */}
+    <div class="flex flex-col gap-4">
+      <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2">
+        {lang === "en" ? "Categories" : "Categorías"}
+      </h3>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    {currentProjects.map((project) => (
-      <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4 
-                  transition-all duration-300 ease-in-out
-                  hover:-translate-y-2 hover:shadow-2xl">
+      {/* All Projects Button */}
+      <a
+        href={`${lang === "en" ? "/en" : ""}/projects`}
+        class={`inline-flex items-center gap-3 px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
+          !selectedCategory
+            ? "scale-105 shadow-lg text-white bg-gray-700"
+            : "hover:scale-105 text-gray-700 dark:text-gray-300 hover:text-white border-2 border-gray-700"
+        }`}
+      >
+        <svg
+          class="w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+          ></path>
+        </svg>
+        <span>{lang === "en" ? "All" : "Todos"}</span>
+      </a>
 
-        <a href={`${lang === "en" ? "/en" : ""}/projects/${project.id.split("/")[1]}`} class="block">
-          
-          <Image 
-            src={project.data.cover} 
-            alt={project.data.title} 
-            class="w-full h-48 object-cover rounded-lg" 
-          />
+      {/* Category Buttons */}
+      {allCategories.map((category) => (
+        <ButtonCategory
+          id={category.data.id}
+          title={category.data.name}
+          link={`${lang === "en" ? "/en" : ""}/projects?category=${category.data.id}`}
+          color={category.data.color}
+          isActive={selectedCategory === category.data.id}
+        />
+      ))}
+    </div>
 
-          <h2 class="font-title text-xl font-bold mt-4 text-gray-900 dark:text-gray-100">
-            {project.data.title}
-          </h2>
+    {/* Projects Grid */}
+    <div class="lg:col-span-3">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {filteredProjects.length > 0 ? (
+          filteredProjects.map((project) => (
+            <div
+              class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4 
+                      transition-all duration-300 ease-in-out
+                      hover:-translate-y-2 hover:shadow-2xl"
+            >
+              <a
+                href={`${lang === "en" ? "/en" : ""}/projects/${project.id.split("/")[1]}`}
+                class="block"
+              >
+                <Image
+                  src={project.data.cover}
+                  alt={project.data.title}
+                  class="w-full h-48 object-cover rounded-lg"
+                />
 
-          <p class="text-gray-600 dark:text-gray-300 mt-2">
-            {project.data.description}
-          </p>
+                <h2 class="font-title text-xl font-bold mt-4 text-gray-900 dark:text-gray-100">
+                  {project.data.title}
+                </h2>
 
-        </a>
+                <p class="text-gray-600 dark:text-gray-300 mt-2">
+                  {project.data.description}
+                </p>
 
+                {/* Category Tags */}
+                <div class="flex flex-wrap gap-2 mt-4">
+                  {project.data.category.map((cat: string) => {
+                    const categoryObj = allCategories.find(
+                      (c) => c.data.id === cat
+                    );
+                    return (
+                      <span
+                        class="text-xs px-3 py-1 rounded-full text-white font-semibold"
+                        style={`background-color: ${categoryObj?.data.color}`}
+                      >
+                        {categoryObj?.data.name}
+                      </span>
+                    );
+                  })}
+                </div>
+              </a>
+            </div>
+          ))
+        ) : (
+          <div class="col-span-2 text-center py-12">
+            <p class="text-gray-600 dark:text-gray-400">
+              {lang === "en" ? "No projects found" : "No se encontraron proyectos"}
+            </p>
+          </div>
+        )}
       </div>
-    ))}
+    </div>
   </div>
 </section>

@@ -9,7 +9,7 @@ techs:
   - Tailwind CSS
   - JavaScript
   - Firebase
-category: "Business & Technology"
+category: ["web", "backend"]
 url: "https://midominio.com/margaunt"
 ---
 
