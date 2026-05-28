@@ -1,0 +1,112 @@
+---
+import { Image } from "astro:assets";
+
+import {
+  getLangFromUrl,
+  useTranslations,
+  useTranslatedPath,
+} from "@i18n/utils";
+
+import type { CollectionEntry } from "astro:content";
+
+import ButtonCategory from "@components/buttons/ButtonCategory.astro";
+
+import { getEntries } from "astro:content";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+
+interface Props {
+  project: CollectionEntry<"projects">;
+}
+
+const { project } = Astro.props;
+
+const categories = await getEntries(project.data.category);
+
+const projectIdCleaned = project.id.replace(`${lang}/`, "");
+---
+
+<article
+  class="group relative overflow-hidden rounded-3xl
+  border border-gray-200 dark:border-gray-700
+  bg-white/80 dark:bg-gray-800/80
+  backdrop-blur-sm
+  transition-all duration-300
+  hover:-translate-y-2
+  hover:shadow-2xl
+  hover:shadow-primary-500/10
+  hover:border-primary-400"
+>
+  <a
+    href={translatePath(`/projects/${projectIdCleaned}`)}
+    class="block"
+  >
+    <!-- IMAGE -->
+    <div class="relative overflow-hidden">
+      <Image
+        src={project.data.cover}
+        alt={project.data.title}
+        class="w-full h-56 object-cover
+        transition-transform duration-500
+        group-hover:scale-110"
+      />
+
+      <!-- Overlay -->
+      <div
+        class="absolute inset-0
+        bg-gradient-to-t
+        from-black/70 via-black/10 to-transparent"
+      />
+
+      <!-- Floating badge -->
+      <div
+        class="absolute top-4 right-4
+        px-3 py-1 rounded-full
+        bg-primary-500/90
+        text-white text-xs font-semibold
+        backdrop-blur-sm"
+      >
+        Project
+      </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="p-6">
+      <h3
+        class="text-xl font-bold
+        text-gray-900 dark:text-white
+        mb-3
+        transition-colors duration-300
+        group-hover:text-primary-500
+        line-clamp-1"
+      >
+        {project.data.title}
+      </h3>
+
+      <p
+        class="text-sm md:text-base leading-relaxed
+        text-gray-600 dark:text-gray-300
+        line-clamp-3"
+      >
+        {project.data.description}
+      </p>
+
+      <!-- Categories -->
+      <div class="mt-6 flex flex-wrap gap-2">
+        {
+          categories.map((category) => (
+            <ButtonCategory
+              id={category.data.id}
+              title={category.data.name}
+              link={`/projects/category/${category.data.id}`}
+              color={category.data.color}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </a>
+</article>
+
