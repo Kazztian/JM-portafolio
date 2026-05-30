@@ -1,16 +1,27 @@
 ---
 id: "1"
+
 title: "Margaunt"
+
 description: "Plataforma digital enfocada en soluciones modernas para gestión empresarial, automatización de procesos y presencia web profesional."
+
 publishDate: 2026-04-24
+
 cover: "@assets/coversProjects/margaunt.jpg"
+
 techs:
   - Astro.js
   - Tailwind CSS
   - JavaScript
   - Firebase
-category: ["web", "backend"]
+
+category:
+  - web
+  - backend
+
 url: "https://midominio.com/margaunt"
+
+isRelevant: true
 ---
 
 ## ¿Qué es Margaunt?

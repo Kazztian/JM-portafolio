@@ -1,0 +1,47 @@
+---
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+import ExperiencesCard from "@components/cards/ExperiencesCard.astro";
+
+// Logo Microsoft
+import logoMicrosoft from "@assets/logos/logoMcsf.svg";
+---
+
+<!-- EXPERIENCIA -->
+<section class="container px-4 lg:px-0 py-20 lg:py-28">
+  <!-- TITULO -->
+  <div class="text-center mb-14">
+    <h2
+      class="font-title font-bold text-3xl lg:text-5xl text-neutral-900 dark:text-white"
+    >
+      {t("home.experience.title")}
+    </h2>
+
+    <p class="mt-4 text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto">
+      Experiencia profesional enfocada en cloud, análisis de información y
+      soluciones tecnológicas modernas.
+    </p>
+  </div>
+
+  <!-- CARD -->
+  <div class="flex items-center justify-center">
+    <div
+      class="hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl rounded-3xl"
+    >
+      <ExperiencesCard
+        titulo={t("home.experience.card0.title")}
+        fechaDeTrabajo={t("home.experience.card0.duration")}
+        rol={t("home.experience.card0.role")}
+        iconoEmpresa={logoMicrosoft}
+        funciones={[
+          "Desarrollo de aplicaciones web",
+          "Diseño de interfaces modernas",
+          "Optimización de rendimiento",
+        ]}
+      />
+    </div>
+  </div>
+</section>

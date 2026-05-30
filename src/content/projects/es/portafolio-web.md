@@ -11,6 +11,9 @@ techs:
   - i18n
 category: ["web"]
 url: "https://midominio.com/portfolio"
+
+
+isRelevant: true
 ---
 
 ## ¿Qué es Portafolio Personal?

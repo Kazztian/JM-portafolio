@@ -1,0 +1,238 @@
+---
+import { Image } from "astro:assets";
+import { ArrowRightIcon } from "@heroicons/react/24/outline";
+
+import {
+  getLangFromUrl,
+  useTranslations,
+  useTranslatedPath,
+} from "@i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+
+// TU IMAGEN / RENDER
+import imgMe from "@assets/brand/me.png";
+
+// LOGOS
+import svgPython from "@assets/logos/logoPython.svg";
+import svgReact from "@assets/logos/logoReact.svg";
+import svgSQL from "@assets/logos/logoSQL.svg";
+import svgAzure from "@assets/logos/logoazure.svg";
+---
+
+<section
+  class="relative overflow-hidden bg-neutral-50 dark:bg-neutral-950"
+>
+  <!-- GRID BACKGROUND -->
+  <div
+    class="absolute inset-0 opacity-[0.03] dark:opacity-[0.06]"
+    style="
+      background-image:
+        linear-gradient(to right, #2563eb 1px, transparent 1px),
+        linear-gradient(to bottom, #2563eb 1px, transparent 1px);
+      background-size: 40px 40px;
+    "
+  />
+
+  <!-- BLUR EFFECTS -->
+  <div
+    class="absolute top-0 left-0 w-72 h-72 bg-primary-500/20 blur-3xl rounded-full"
+  />
+
+  <div
+    class="absolute bottom-0 right-0 w-96 h-96 bg-blue-400/10 blur-3xl rounded-full"
+  />
+
+  <div
+    class="container relative z-10
+    grid lg:grid-cols-2 gap-14 items-center
+    px-6 lg:px-0
+    py-20 lg:py-32"
+  >
+    <!-- LEFT -->
+    <div class="flex flex-col items-center lg:items-start text-center lg:text-left">
+      <!-- BADGE -->
+      <div
+        class="mb-6 inline-flex items-center gap-2
+        px-4 py-2 rounded-full
+        border border-primary-500/20
+        bg-primary-500/10
+        backdrop-blur-md"
+      >
+        <span class="size-2 rounded-full bg-primary-500 animate-pulse" />
+
+        <p
+          class="text-sm font-medium text-primary-700 dark:text-primary-300"
+        >
+          Backend Developer & Data Analysis
+        </p>
+      </div>
+
+      <!-- TITLE -->
+      <h1
+        class="font-title font-bold
+        text-5xl sm:text-6xl xl:text-7xl
+        leading-tight
+        text-neutral-950 dark:text-neutral-50"
+      >
+        Juan Sebastián
+        <span class="text-primary-600 dark:text-primary-400">
+          Madrid
+        </span>
+      </h1>
+
+      <!-- ROLE -->
+      <h2
+        class="mt-6
+        text-xl sm:text-2xl
+        font-semibold
+        text-neutral-700 dark:text-neutral-300"
+      >
+        {t("home.banner.title2")}
+      </h2>
+
+      <!-- DESCRIPTION -->
+      <p
+        class="mt-6 max-w-2xl
+        text-base sm:text-lg leading-relaxed
+        text-neutral-600 dark:text-neutral-400"
+      >
+        {t("home.banner.subtitle")}
+      </p>
+
+      <!-- BUTTONS -->
+      <div
+        class="mt-10 flex flex-col sm:flex-row items-center gap-4"
+      >
+        <a
+          href={translatePath("/projects")}
+          class="
+            inline-flex items-center gap-2
+            px-6 py-3 rounded-xl
+            bg-primary-600 hover:bg-primary-700
+            text-white font-semibold
+            transition-all duration-300
+            hover:scale-105
+            shadow-lg shadow-primary-500/20
+          "
+        >
+          {t("home.banner.button")}
+          <ArrowRightIcon className="size-5" />
+        </a>
+
+        <a
+          href="https://github.com/Kazztian"
+          target="_blank"
+          class="
+            inline-flex items-center gap-2
+            px-6 py-3 rounded-xl
+            border border-neutral-300 dark:border-neutral-700
+            bg-white/70 dark:bg-neutral-900/70
+            backdrop-blur-md
+            hover:bg-neutral-100 dark:hover:bg-neutral-800
+            text-neutral-900 dark:text-neutral-100
+            font-semibold
+            transition-all duration-300
+          "
+        >
+          GitHub
+        </a>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="relative flex items-center justify-center">
+      <!-- GLOW -->
+      <div
+        class="absolute
+        w-[420px] h-[420px]
+        bg-primary-500/20
+        blur-3xl rounded-full"
+      />
+
+      <!-- CARD -->
+      <div
+        class="
+        relative
+        rounded-[2rem]
+        border border-white/10
+        bg-white/60 dark:bg-neutral-900/70
+        backdrop-blur-xl
+        shadow-2xl
+        p-8
+        w-full max-w-md
+        overflow-hidden
+      "
+      >
+        <!-- IMAGE -->
+        <div class="relative flex justify-center">
+          <Image
+            src={imgMe}
+            alt="Juan Sebastian Madrid"
+            class="
+              w-72 object-contain
+              drop-shadow-2xl
+            "
+          />
+        </div>
+
+        <!-- FLOATING TECHS -->
+        <div
+          class="
+          absolute top-8 left-4
+          px-4 py-2 rounded-xl
+          bg-white dark:bg-neutral-800
+          shadow-lg
+          flex items-center gap-2
+          animate-bounce
+        "
+        >
+          <img src={svgPython.src} alt="Python" class="w-5 h-5" />
+          <span class="text-sm font-semibold">Python</span>
+        </div>
+
+        <div
+          class="
+          absolute top-20 right-4
+          px-4 py-2 rounded-xl
+          bg-white dark:bg-neutral-800
+          shadow-lg
+          flex items-center gap-2
+        "
+        >
+          <img src={svgReact.src} alt="React" class="w-5 h-5" />
+          <span class="text-sm font-semibold">React</span>
+        </div>
+
+        <div
+          class="
+          absolute bottom-20 left-6
+          px-4 py-2 rounded-xl
+          bg-white dark:bg-neutral-800
+          shadow-lg
+          flex items-center gap-2
+        "
+        >
+          <img src={svgSQL.src} alt="SQL" class="w-5 h-5" />
+          <span class="text-sm font-semibold">SQL</span>
+        </div>
+
+        <div
+          class="
+          absolute bottom-10 right-4
+          px-4 py-2 rounded-xl
+          bg-white dark:bg-neutral-800
+          shadow-lg
+          flex items-center gap-2
+        "
+        >
+          <img src={svgAzure.src} alt="Azure" class="w-5 h-5" />
+          <span class="text-sm font-semibold">Azure</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

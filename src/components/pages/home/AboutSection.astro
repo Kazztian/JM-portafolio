@@ -1,0 +1,106 @@
+---
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
+import { Image } from "astro:assets";
+
+import TechCard from "@components/cards/TechCard.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Tu imagen
+import imgMe from "@assets/brand/me.png";
+
+// Logos reales tuyos
+import svgPython from "@assets/logos/logoPython.svg";
+import svgReact from "@assets/logos/logoReact.svg";
+import svgMySQL from "@assets/logos/logoMySql.svg";
+import svgSQL from "@assets/logos/logoSQL.svg";
+import svgGit from "@assets/logos/logoGit.svg";
+import svgGithub from "@assets/logos/logoGithub.svg";
+---
+
+<section class="container px-4 lg:px-0 py-20 lg:py-28">
+  <h2
+    class="text-center font-title font-bold text-3xl lg:text-5xl mb-14
+    text-neutral-900 dark:text-white"
+  >
+    {t("home.about.title")}
+  </h2>
+
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 items-center">
+    <!-- FOTO -->
+    <div class="flex justify-center">
+      <div
+        class="relative rounded-3xl overflow-hidden
+        bg-gradient-to-br from-primary-500/20 to-primary-700/20
+        p-2 backdrop-blur-lg"
+      >
+        <div
+          class="absolute inset-0 bg-white/10 dark:bg-black/10 backdrop-blur-xl"
+        ></div>
+
+        <Image
+          src={imgMe}
+          alt="Juan Sebastian Madrid"
+          class="relative z-10 w-72 lg:w-80 object-cover rounded-2xl"
+        />
+      </div>
+    </div>
+
+    <!-- INFORMACIÓN -->
+    <div class="lg:col-span-1">
+      <div
+        class="bg-white dark:bg-neutral-900
+        border border-neutral-200 dark:border-neutral-800
+        rounded-3xl p-8 shadow-lg"
+      >
+        <ul class="flex flex-col gap-5">
+          {
+            t("home.about.bio").map(
+              (item: { title: string; description: string }) => (
+                <li>
+                  <p
+                    class="text-neutral-700 dark:text-neutral-300 leading-relaxed"
+                  >
+                    <span
+                      class="font-semibold text-neutral-950 dark:text-white"
+                    >
+                      {item.title}:
+                    </span>
+                    {" "}
+                    {item.description}
+                  </p>
+                </li>
+              )
+            )
+          }
+        </ul>
+      </div>
+    </div>
+
+    <!-- STACK -->
+    <div>
+      <div
+        class="bg-white dark:bg-neutral-900
+        border border-neutral-200 dark:border-neutral-800
+        rounded-3xl p-8 shadow-lg"
+      >
+        <h3
+          class="text-center font-title font-bold text-2xl mb-8
+          text-neutral-900 dark:text-white"
+        >
+          {t("home.about.titleStack")}
+        </h3>
+
+        <div class="grid grid-cols-2 gap-4 place-items-center">
+          <TechCard title="Python" img={svgPython} />
+          <TechCard title="React" img={svgReact} />
+          <TechCard title="MySQL" img={svgMySQL} />
+          <TechCard title="SQL" img={svgSQL} />
+          <TechCard title="Git" img={svgGit} />
+          <TechCard title="GitHub" img={svgGithub} />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

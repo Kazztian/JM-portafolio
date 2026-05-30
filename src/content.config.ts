@@ -11,14 +11,20 @@ const projectCollection = defineCollection({
     z.object({
       title: z.string(),
       description: z.string(),
+
       publishDate: z.coerce.date(),
+
       cover: image(),
+
       techs: z.array(z.string()),
 
-      // 🔥 CAMBIO
+      // 🔥 Categorías relacionadas
       category: z.array(reference("categoriesProjects")),
 
       url: z.string().url(),
+
+      // 🔥 NUEVO
+      isRelevant: z.boolean().default(false),
     }),
 });
 

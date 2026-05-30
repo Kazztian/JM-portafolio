@@ -1,0 +1,123 @@
+---
+import TechCard from "@components/cards/TechCard.astro";
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Frontend
+import logoHTML from "@assets/logos/logoHTML.svg";
+import logoCSS from "@assets/logos/logoCSS.svg";
+import logoJS from "@assets/logos/logoJS.svg";
+import logoReact from "@assets/logos/logoReact.svg";
+
+// Backend & Databases
+import logoPHP from "@assets/logos/logophp.svg";
+import logoSQL from "@assets/logos/logoSQL.svg";
+import logoMySql from "@assets/logos/logoMySql.svg";
+import logoMongoDB from "@assets/logos/logomongodb.svg";
+
+// Tools
+import logoGit from "@assets/logos/logoGit.svg";
+import logoGithub from "@assets/logos/logoGithub.svg";
+import logoVSC from "@assets/logos/logoVSC.svg";
+import logoNotion from "@assets/logos/logoNotion.svg";
+
+// Data & Cloud
+import logoPowerBi from "@assets/logos/logoPowerBi.svg";
+import logoAzure from "@assets/logos/logoazure.svg";
+import logoCopilot from "@assets/logos/logoCopailoEstu.png";
+import logoMcsf from "@assets/logos/logoMcsf.svg";
+---
+
+<section class="container px-4 lg:px-0 mb-24">
+  <!-- TITULO -->
+  <div class="text-center mb-14">
+    <h2
+      class="font-title text-3xl lg:text-5xl font-bold text-neutral-900 dark:text-white"
+    >
+      {t("home.techs.title")}
+    </h2>
+
+    <p class="mt-4 text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto">
+      Tecnologías y herramientas con las que construyo soluciones modernas,
+      escalables y funcionales.
+    </p>
+  </div>
+
+  <!-- GRID PRINCIPAL -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+
+    <!-- FRONTEND -->
+    <div
+      class="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-300"
+    >
+      <h3
+        class="font-title text-2xl font-semibold mb-8 text-neutral-900 dark:text-white"
+      >
+        {t("home.techs.titleFrontend")}
+      </h3>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 place-items-center">
+        <TechCard title="HTML" img={logoHTML} />
+        <TechCard title="CSS" img={logoCSS} />
+        <TechCard title="JavaScript" img={logoJS} />
+        <TechCard title="React" img={logoReact} />
+      </div>
+    </div>
+
+    <!-- BACKEND -->
+    <div
+      class="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-300"
+    >
+      <h3
+        class="font-title text-2xl font-semibold mb-8 text-neutral-900 dark:text-white"
+      >
+        {t("home.techs.titleBackend")}
+      </h3>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 place-items-center">
+        <TechCard title="PHP" img={logoPHP} />
+        <TechCard title="SQL" img={logoSQL} />
+        <TechCard title="MySQL" img={logoMySql} />
+        <TechCard title="MongoDB" img={logoMongoDB} />
+      </div>
+    </div>
+
+    <!-- DATA & CLOUD -->
+    <div
+      class="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-300"
+    >
+      <h3
+        class="font-title text-2xl font-semibold mb-8 text-neutral-900 dark:text-white"
+      >
+        Data & Cloud
+      </h3>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 place-items-center">
+        <TechCard title="Power BI" img={logoPowerBi} />
+        <TechCard title="Azure" img={logoAzure} />
+        <TechCard title="Microsoft" img={logoMcsf} />
+        <TechCard title="GitHub Copilot" img={logoCopilot} />
+      </div>
+    </div>
+
+    <!-- TOOLS -->
+    <div
+      class="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-300"
+    >
+      <h3
+        class="font-title text-2xl font-semibold mb-8 text-neutral-900 dark:text-white"
+      >
+        {t("home.techs.titleDevelopmentTools")}
+      </h3>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 place-items-center">
+        <TechCard title="Git" img={logoGit} />
+        <TechCard title="GitHub" img={logoGithub} />
+        <TechCard title="VS Code" img={logoVSC} />
+        <TechCard title="Notion" img={logoNotion} />
+      </div>
+    </div>
+  </div>
+</section>
