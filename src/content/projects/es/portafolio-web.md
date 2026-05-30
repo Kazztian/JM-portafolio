@@ -9,10 +9,9 @@ techs:
   - Tailwind CSS
   - TypeScript
   - i18n
-category: ["web"]
+category:
+  - web
 url: "https://midominio.com/portfolio"
-
-
 isRelevant: true
 ---
 
