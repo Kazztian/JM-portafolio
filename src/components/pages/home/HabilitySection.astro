@@ -11,11 +11,10 @@ import {
   ServerIcon,
   CircleStackIcon,
 } from "@heroicons/react/24/outline";
+
 ---
 
-<section
-  class="container py-20 lg:py-28 px-4 lg:px-0"
->
+<section class="max-w-7xl mx-auto py-20 lg:py-28 px-6">
   <!-- TITULO -->
   <div class="text-center mb-16">
     <h2
@@ -34,10 +33,17 @@ import {
 
   <!-- CARDS -->
   <div
-    class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-10"
+    class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-10 items-stretch"
   >
     <div
-      class="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-3xl p-8 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300"
+      class="rounded-[32px]
+      border border-neutral-200 dark:border-neutral-800
+      bg-white dark:bg-neutral-900
+      p-4
+      transition-all duration-300
+      hover:-translate-y-2
+      hover:shadow-2xl
+      hover:shadow-primary-500/10"
     >
       <HabilityCard
         title={t("home.hability.card1.title")}
@@ -47,7 +53,14 @@ import {
     </div>
 
     <div
-      class="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-3xl p-8 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300"
+      class="rounded-[32px]
+      border border-neutral-200 dark:border-neutral-800
+      bg-white dark:bg-neutral-900
+      p-4
+      transition-all duration-300
+      hover:-translate-y-2
+      hover:shadow-2xl
+      hover:shadow-primary-500/10"
     >
       <HabilityCard
         title={t("home.hability.card2.title")}
@@ -57,7 +70,14 @@ import {
     </div>
 
     <div
-      class="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-3xl p-8 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300"
+      class="rounded-[32px]
+      border border-neutral-200 dark:border-neutral-800
+      bg-white dark:bg-neutral-900
+      p-4
+      transition-all duration-300
+      hover:-translate-y-2
+      hover:shadow-2xl
+      hover:shadow-primary-500/10"
     >
       <HabilityCard
         title={t("home.hability.card3.title")}

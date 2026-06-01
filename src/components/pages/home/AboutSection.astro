@@ -19,7 +19,7 @@ import svgGit from "@assets/logos/logoGit.svg";
 import svgGithub from "@assets/logos/logoGithub.svg";
 ---
 
-<section class="container px-4 lg:px-0 py-20 lg:py-28">
+<section class="container mx-auto px-4 py-20 lg:py-28">
   <h2
     class="text-center font-title font-bold text-3xl lg:text-5xl mb-14
     text-neutral-900 dark:text-white"
@@ -27,17 +27,55 @@ import svgGithub from "@assets/logos/logoGithub.svg";
     {t("home.about.title")}
   </h2>
 
-  <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 items-center">
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+    <!-- INFORMACIÓN -->
+    <div>
+      <div
+        class="h-full bg-white dark:bg-neutral-900
+    border border-neutral-200 dark:border-neutral-800
+    rounded-3xl p-8 shadow-lg"
+      >
+        <h3
+          class="text-center font-title font-bold text-2xl mb-8
+      text-neutral-900 dark:text-white"
+        >
+          Mi Info
+        </h3>
+
+        <ul class="flex flex-col gap-6">
+          {
+            t("home.about.bio").map(
+              (item: { title: string; description: string }) => (
+                <li>
+                  <p
+                    class="text-base lg:text-lg
+                text-neutral-700 dark:text-neutral-300
+                leading-relaxed"
+                  >
+                    <span class="font-semibold text-primary-600 dark:text-primary-400">
+                      {item.title}:
+                    </span>{" "}
+                    {item.description}
+                  </p>
+                </li>
+              ),
+            )
+          }
+        </ul>
+      </div>
+    </div>
+
     <!-- FOTO -->
-    <div class="flex justify-center">
+    <div class="flex justify-center items-center">
       <div
         class="relative rounded-3xl overflow-hidden
-        bg-gradient-to-br from-primary-500/20 to-primary-700/20
-        p-2 backdrop-blur-lg"
+      bg-gradient-to-br from-primary-500/20 to-primary-700/20
+      p-2 backdrop-blur-lg"
       >
         <div
           class="absolute inset-0 bg-white/10 dark:bg-black/10 backdrop-blur-xl"
-        ></div>
+        >
+        </div>
 
         <Image
           src={imgMe}
@@ -47,48 +85,16 @@ import svgGithub from "@assets/logos/logoGithub.svg";
       </div>
     </div>
 
-    <!-- INFORMACIÓN -->
-    <div class="lg:col-span-1">
-      <div
-        class="bg-white dark:bg-neutral-900
-        border border-neutral-200 dark:border-neutral-800
-        rounded-3xl p-8 shadow-lg"
-      >
-        <ul class="flex flex-col gap-5">
-          {
-            t("home.about.bio").map(
-              (item: { title: string; description: string }) => (
-                <li>
-                  <p
-                    class="text-neutral-700 dark:text-neutral-300 leading-relaxed"
-                  >
-                    <span
-                      class="font-semibold text-neutral-950 dark:text-white"
-                    >
-                      {item.title}:
-                    </span>
-                    {" "}
-                    {item.description}
-                  </p>
-                </li>
-              )
-            )
-          }
-        </ul>
-      </div>
-    </div>
-
     <!-- STACK -->
     <div>
       <div
-        class="bg-white dark:bg-neutral-900
-        border border-neutral-200 dark:border-neutral-800
-        rounded-3xl p-8 shadow-lg"
+        class="bg-white dark:bg-neutral-900 border 
+        border-neutral-200 dark:border-neutral-800
+         rounded-3xl p-8 shadow-lg"
       >
-        <h3
-          class="text-center font-title font-bold text-2xl mb-8
-          text-neutral-900 dark:text-white"
-        >
+        <h3 class="text-center font-title font-bold text-2xl mb-8
+         text-neutral-900 dark:text-white" >
+          
           {t("home.about.titleStack")}
         </h3>
 

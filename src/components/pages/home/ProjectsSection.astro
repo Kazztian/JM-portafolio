@@ -26,12 +26,12 @@ const currentProjects = await getCollection(
 <section class="container px-4 lg:px-0 py-20 lg:py-28">
   <!-- TITULO -->
   <div class="flex flex-col items-center mb-14">
-    <span
+    <!--  <span
       class="text-primary-600 dark:text-primary-400
       font-semibold tracking-widest uppercase text-sm mb-3"
     >
       Portfolio
-    </span>
+    </span>-->
 
     <h2
       class="text-center font-title font-bold
@@ -41,25 +41,25 @@ const currentProjects = await getCollection(
       {t("home.projects.title")}
     </h2>
 
-    <p
-      class="text-neutral-600 dark:text-neutral-400
-      text-center mt-4 max-w-2xl leading-relaxed"
-    >
+  <p
+  class="mt-4 text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto text-base lg:text-lg text-center"
+>
       Algunos de los proyectos donde he aplicado desarrollo web,
       lógica backend y organización de datos.
     </p>
   </div>
 
   <!-- GRID -->
-  <div
-    class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8"
-  >
-    {
-      currentProjects.map((project) => (
-        <ProjectCard project={project} />
-      ))
-    }
-  </div>
+<div
+  class="flex flex-wrap justify-center gap-8"
+>
+  {
+    currentProjects.map((project) => (
+      <ProjectCard project={project} />
+    ))
+  }
+</div>
+</div>
 
   <!-- BOTON -->
   <div class="flex justify-center mt-14">
