@@ -14,6 +14,7 @@ const es = {
 
   home: {
     banner: {
+       hello: "Hola, soy",
       title: `Hola, soy 
       <span class="text-primary-500 dark:text-neutral-100 font-semibold">
         Juan Sebastián Madrid
@@ -26,6 +27,8 @@ const es = {
 
     hability: {
       title: "¿Qué puedo hacer?",
+       description:
+    "Soluciones enfocadas en desarrollo backend, análisis de datos y experiencias web modernas.",
 
       card1: {
         title: "Desarrollo Backend",
@@ -48,6 +51,8 @@ const es = {
 
     experience: {
       title: "Experiencia",
+       description:
+    "Experiencia profesional enfocada en cloud, análisis de información y soluciones tecnológicas modernas.",
 
       card0: {
         title: "Microsoft",
@@ -69,10 +74,13 @@ const es = {
     projects: {
       title: "Proyectos destacados",
       btn: "Ver todos",
+       description:
+    "Algunos de los proyectos donde he aplicado desarrollo web, lógica backend y organización de datos.",
     },
 
     about: {
       title: "Sobre mí",
+      infoTitle: "Mi Información",
 
       bio: [
         {
@@ -121,6 +129,8 @@ const es = {
 
     techs: {
       title: "Tecnologías y Habilidades",
+        description:
+    "Tecnologías y herramientas con las que construyo soluciones modernas, escalables y funcionales.",
 
       titleFrontend: "Frontend",
 

@@ -37,9 +37,9 @@ import svgGithub from "@assets/logos/logoGithub.svg";
       >
         <h3
           class="text-center font-title font-bold text-2xl mb-8
-      text-neutral-900 dark:text-white"
+  text-neutral-900 dark:text-white"
         >
-          Mi Info
+          {t("home.about.infoTitle")}
         </h3>
 
         <ul class="flex flex-col gap-6">
@@ -78,27 +78,33 @@ import svgGithub from "@assets/logos/logoGithub.svg";
         </div>
 
         <Image
-          src={imgMe}
-          alt="Juan Sebastian Madrid"
-          class="relative z-10 w-72 lg:w-80 object-cover rounded-2xl"
-        />
+  src={imgMe}
+  alt="Juan Sebastian Madrid"
+  class="relative z-10
+  w-full max-w-[320px]
+  object-cover rounded-2xl"
+/>
       </div>
     </div>
 
     <!-- STACK -->
     <div>
       <div
-        class="bg-white dark:bg-neutral-900 border 
+        class="bg-white dark:bg-neutral-900 border
         border-neutral-200 dark:border-neutral-800
          rounded-3xl p-8 shadow-lg"
       >
-        <h3 class="text-center font-title font-bold text-2xl mb-8
-         text-neutral-900 dark:text-white" >
-          
+        <h3
+          class="text-center font-title font-bold text-2xl mb-8
+         text-neutral-900 dark:text-white"
+        >
           {t("home.about.titleStack")}
         </h3>
 
-        <div class="grid grid-cols-2 gap-4 place-items-center">
+        <div
+  class="grid gap-4
+  [grid-template-columns:repeat(auto-fit,minmax(120px,1fr))]"
+>
           <TechCard title="Python" img={svgPython} />
           <TechCard title="React" img={svgReact} />
           <TechCard title="MySQL" img={svgMySQL} />

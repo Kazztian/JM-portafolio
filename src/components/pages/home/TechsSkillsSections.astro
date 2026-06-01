@@ -39,15 +39,15 @@ import logoMcsf from "@assets/logos/logoMcsf.svg";
       {t("home.techs.title")}
     </h2>
 
-    <p  class="mt-4 text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto text-base lg:text-lg">
-      Tecnologías y herramientas con las que construyo soluciones modernas,
-      escalables y funcionales.
+    <p
+      class="mt-4 text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto text-base lg:text-lg"
+    >
+      {t("home.techs.description")}
     </p>
   </div>
 
   <!-- GRID PRINCIPAL -->
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
-
     <!-- FRONTEND -->
     <div
       class="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-300"
@@ -58,7 +58,10 @@ import logoMcsf from "@assets/logos/logoMcsf.svg";
         {t("home.techs.titleFrontend")}
       </h3>
 
-      <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 place-items-center">
+      <div
+        class="grid gap-6
+  [grid-template-columns:repeat(auto-fit,minmax(140px,1fr))]"
+      >
         <TechCard title="HTML" img={logoHTML} />
         <TechCard title="CSS" img={logoCSS} />
         <TechCard title="JavaScript" img={logoJS} />
@@ -76,7 +79,10 @@ import logoMcsf from "@assets/logos/logoMcsf.svg";
         {t("home.techs.titleBackend")}
       </h3>
 
-      <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 place-items-center">
+      <div
+        class="grid gap-6
+  [grid-template-columns:repeat(auto-fit,minmax(140px,1fr))]"
+      >
         <TechCard title="PHP" img={logoPHP} />
         <TechCard title="SQL" img={logoSQL} />
         <TechCard title="MySQL" img={logoMySql} />
@@ -94,7 +100,10 @@ import logoMcsf from "@assets/logos/logoMcsf.svg";
         Data & Cloud
       </h3>
 
-      <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 place-items-center">
+      <div
+        class="grid gap-6
+  [grid-template-columns:repeat(auto-fit,minmax(140px,1fr))]"
+      >
         <TechCard title="Power BI" img={logoPowerBi} />
         <TechCard title="Azure" img={logoAzure} />
         <TechCard title="Microsoft" img={logoMcsf} />
@@ -112,7 +121,10 @@ import logoMcsf from "@assets/logos/logoMcsf.svg";
         {t("home.techs.titleDevelopmentTools")}
       </h3>
 
-      <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 place-items-center">
+      <div
+        class="grid gap-6
+  [grid-template-columns:repeat(auto-fit,minmax(140px,1fr))]"
+      >
         <TechCard title="Git" img={logoGit} />
         <TechCard title="GitHub" img={logoGithub} />
         <TechCard title="VS Code" img={logoVSC} />

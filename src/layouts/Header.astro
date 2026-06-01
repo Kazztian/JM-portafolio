@@ -23,7 +23,16 @@ const translatedPath = useTranslatedPath(lang);
 ---
 
 <header
-  class="bg-neutral-50 dark:bg-neutral-900 flex items-center justify-center shadow"
+   class="
+    fixed top-0 left-0 right-0 z-[999]
+
+    bg-neutral-50/90
+    dark:bg-neutral-900/90
+    backdrop-blur-md
+
+    flex items-center justify-center
+    shadow
+  "
 >
   <div
     class="container mx-auto px-4 lg:px-0 lg:pl-24 xl:pl-40 relative flex items-center justify-between gap-4 lg:py-4"
@@ -75,7 +84,7 @@ font-text font-medium text-xl"
       >
         <li><a href={translatedPath("/")}>{t("nav.home")}</a></li>
         <li><a href={translatedPath("/projects")}>{t("nav.projects")}</a></li>
-        <li><a href={translatedPath("/blog")}>{t("nav.blog")}</a></li>
+        <!-- <li><a href={translatedPath("/blog")}>{t("nav.blog")}</a></li> -->
         <li><a href={translatedPath("/about")}>{t("nav.about")}</a></li>
         <li><a href={translatedPath("/contacto")}>{t("nav.contact")}</a></li>
       </ul>

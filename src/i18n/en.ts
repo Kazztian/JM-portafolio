@@ -14,6 +14,7 @@ const en = {
 
   home: {
     banner: {
+      hello: "Hello, I'm",
       title: `Hello, I'm 
       <span class="text-primary-500 dark:text-neutral-100 font-semibold">
         Juan Sebastián Madrid
@@ -26,6 +27,8 @@ const en = {
 
     hability: {
       title: "What can I do?",
+      description:
+    "Solutions focused on backend development, data analysis, and modern web experiences.",
 
       card1: {
         title: "Backend Development",
@@ -48,6 +51,8 @@ const en = {
 
     experience: {
       title: "Experience",
+      description:
+    "Professional experience focused on cloud technologies, information analysis, and modern technology solutions.",
 
       card0: {
         title: "Microsoft",
@@ -69,10 +74,14 @@ const en = {
     projects: {
       title: "Featured Projects",
       btn: "View all",
+
+        description:
+    "Some of the projects where I have applied web development, backend logic, and data organization.",
     },
 
     about: {
       title: "About Me",
+      infoTitle: "My Information",
 
       bio: [
         {
@@ -121,6 +130,8 @@ const en = {
 
     techs: {
       title: "Technologies & Skills",
+       description:
+    "Technologies and tools I use to build modern, scalable, and functional solutions.",
 
       titleFrontend: "Frontend",
 

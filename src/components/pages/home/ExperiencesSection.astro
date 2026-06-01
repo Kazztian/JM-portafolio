@@ -12,7 +12,6 @@ import logoMicrosoft from "@assets/logos/logoMcsf.svg";
 
 <!-- EXPERIENCIA -->
 <section class="relative isolate container px-4 lg:px-0 py-20 lg:py-28">
-  
   <!-- Glow Background -->
   <div
     class="absolute top-20 left-1/2 -translate-x-1/2
@@ -21,7 +20,8 @@ import logoMicrosoft from "@assets/logos/logoMcsf.svg";
     blur-[120px]
     rounded-full
     -z-10"
-  />
+  >
+  </div>
 
   <!-- TITULO -->
   <div class="text-center mb-14">
@@ -31,9 +31,10 @@ import logoMicrosoft from "@assets/logos/logoMcsf.svg";
       {t("home.experience.title")}
     </h2>
 
-    <p class="mt-4 text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto text-base lg:text-lg">
-      Experiencia profesional enfocada en cloud, análisis de información y
-      soluciones tecnológicas modernas.
+    <p
+      class="mt-4 text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto text-base lg:text-lg"
+    >
+      {t("home.experience.description")}
     </p>
   </div>
 
@@ -43,12 +44,12 @@ import logoMicrosoft from "@assets/logos/logoMcsf.svg";
       class="hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl rounded-3xl"
     >
       <ExperiencesCard
-  titulo={t("home.experience.card0.title")}
-  fechaDeTrabajo={t("home.experience.card0.duration")}
-  rol={t("home.experience.card0.role")}
-  iconoEmpresa={logoMicrosoft}
-  funciones={t("home.experience.card0.funciones")}
-/>
+        titulo={t("home.experience.card0.title")}
+        fechaDeTrabajo={t("home.experience.card0.duration")}
+        rol={t("home.experience.card0.role")}
+        iconoEmpresa={logoMicrosoft}
+        funciones={t("home.experience.card0.funciones")}
+      />
     </div>
   </div>
 </section>
