@@ -142,6 +142,113 @@ const en = {
       titleDevelopmentTools: "Tools",
     },
   },
+  about: {
+  title: "About Me",
+
+  description:
+    "Full Stack Developer focused on building modern, functional, and scalable applications by combining backend development, data analysis, and high-quality web experiences.",
+
+  cardCharacter: {
+    header: {
+      name: "Juan Sebastián Madrid",
+
+      role: "Full Stack Developer",
+
+      location: "Colombia",
+
+      description:
+        "Developer passionate about technology, problem-solving, and building modern digital solutions. I enjoy continuously learning, taking on new challenges, and transforming ideas into functional projects.",
+    },
+
+    mainStats: {
+      language: "Main Language",
+
+      framework: "Favorite Framework",
+
+      skill: "Key Strength",
+
+      tool: "Favorite Tool",
+
+      languageValue: "TypeScript",
+
+      frameworkValue: "Astro.js",
+
+      skillValue: "Problem Solving",
+
+      toolValue: "VS Code ⚡",
+    },
+  },
+
+  stats: {
+    fullstack: "Full Stack",
+    teamwork: "Teamwork",
+    logic: "Logic",
+    problemSolving: "Problem Solver",
+    creativity: "Creativity",
+  },
+
+  myHistory: {
+    title: "My Story",
+
+    description:
+      "My interest in programming started with the curiosity to understand how the applications and platforms we use every day work. Over time, I have developed projects focused on web development, backend systems, databases, and artificial intelligence, strengthening both my technical skills and my ability to solve problems through software.",
+  },
+
+  myExperience: {
+    title: "Experience",
+
+    description: `
+      <ul>
+        <li>Full Stack Web Application Development</li>
+        <li>Backend Development & APIs</li>
+        <li>Data Analysis and Management</li>
+        <li>Modern and Responsive UI Development</li>
+        <li>Cloud Services and Integrations</li>
+        <li>Artificial Intelligence and Automation Projects</li>
+      </ul>
+    `,
+  },
+
+  myVision: {
+    title: "Vision",
+
+    description:
+      "My goal is to grow as a software engineer by building innovative solutions that combine web development, artificial intelligence, and data analysis. I strive to create scalable, efficient products that deliver real value to people and organizations.",
+  },
+},
+
+certifications: {
+  title: "Certifications",
+
+  description:
+    "Credentials that validate my knowledge in cloud computing, artificial intelligence, and data management.",
+
+  items: [
+    {
+      title:
+        "Microsoft Certified: Azure AI Fundamentals (AI-900)",
+
+      description:
+        "Fundamentals of Artificial Intelligence in Azure, including Machine Learning, Computer Vision, Natural Language Processing, and Generative AI.",
+    },
+
+    {
+      title:
+        "Microsoft Certified: Azure Fundamentals (AZ-900)",
+
+      description:
+        "Core concepts of cloud computing, Azure services, security, governance, and pricing models.",
+    },
+
+    {
+      title:
+        "Microsoft Certified: Azure Data Fundamentals (DP-900)",
+
+      description:
+        "Fundamentals of relational and non-relational data, data analytics, and Azure data storage solutions.",
+    },
+  ],
+},
 };
 
 export default en;

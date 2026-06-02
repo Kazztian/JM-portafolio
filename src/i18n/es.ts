@@ -141,6 +141,105 @@ const es = {
       titleDevelopmentTools: "Herramientas",
     },
   },
+  about: {
+  title: "Sobre Mí",
+
+  description:
+    "Desarrollador Full Stack enfocado en crear aplicaciones modernas, funcionales y escalables, combinando desarrollo backend, análisis de datos y experiencias web de calidad.",
+
+  cardCharacter: {
+    header: {
+      name: "Juan Sebastián Madrid",
+      role: "Full Stack Developer",
+      location: "Colombia",
+
+      description:
+        "Desarrollador apasionado por la tecnología, la resolución de problemas y la construcción de soluciones digitales modernas. Disfruto aprender constantemente, enfrentar nuevos desafíos y transformar ideas en proyectos funcionales.",
+    },
+
+    mainStats: {
+      language: "Lenguaje Principal",
+      framework: "Framework Favorito",
+      skill: "Habilidad Destacada",
+      tool: "Herramienta Favorita",
+
+      languageValue: "TypeScript",
+      frameworkValue: "Astro.js",
+      skillValue: "Resolución de Problemas",
+      toolValue: "VS Code ⚡",
+    },
+  },
+
+  stats: {
+    fullstack: "Full Stack",
+    teamwork: "Trabajo en Equipo",
+    logic: "Lógica",
+    problemSolving: "Resolutivo",
+    creativity: "Creatividad",
+  },
+
+  myHistory: {
+    title: "Mi Historia",
+
+    description:
+      "Mi interés por la programación nació de la curiosidad por comprender cómo funcionan las aplicaciones y plataformas que utilizamos diariamente. Con el tiempo he desarrollado proyectos enfocados en desarrollo web, backend, bases de datos e inteligencia artificial, fortaleciendo mis habilidades técnicas y mi capacidad para resolver problemas mediante software.",
+  },
+
+  myExperience: {
+    title: "Experiencia",
+
+    description: `
+      <ul>
+        <li>Desarrollo de aplicaciones web Full Stack</li>
+        <li>Desarrollo Backend y APIs</li>
+        <li>Análisis y gestión de datos</li>
+        <li>Diseño de interfaces modernas y responsivas</li>
+        <li>Integración de servicios y herramientas cloud</li>
+        <li>Proyectos con inteligencia artificial y automatización</li>
+      </ul>
+    `,
+  },
+
+  myVision: {
+    title: "Visión",
+
+    description:
+      "Mi objetivo es crecer como ingeniero de software construyendo soluciones innovadoras que integren desarrollo web, inteligencia artificial y análisis de datos. Busco crear productos escalables, eficientes y enfocados en aportar valor real a las personas y organizaciones.",
+  },
+},
+
+certifications: {
+  title: "Certificaciones",
+
+  description:
+    "Credenciales que respaldan mis conocimientos en computación en la nube, inteligencia artificial y gestión de datos.",
+
+  items: [
+    {
+      title:
+        "Microsoft Certified: Azure AI Fundamentals (AI-900)",
+
+      description:
+        "Fundamentos de inteligencia artificial en Azure, incluyendo Machine Learning, visión artificial, procesamiento de lenguaje natural e IA generativa.",
+    },
+
+    {
+      title:
+        "Microsoft Certified: Azure Fundamentals (AZ-900)",
+
+      description:
+        "Conceptos esenciales de computación en la nube, servicios Azure, seguridad, gobernanza y modelos de costos.",
+    },
+
+    {
+      title:
+        "Microsoft Certified: Azure Data Fundamentals (DP-900)",
+
+      description:
+        "Fundamentos de datos relacionales y no relacionales, análisis de datos y soluciones de almacenamiento en Azure.",
+    },
+  ],
+},
 };
 
 export default es;
