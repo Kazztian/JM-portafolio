@@ -1,0 +1,57 @@
+---
+interface Props {
+  title: string;
+  percentage: number;
+}
+
+const { title, percentage } = Astro.props;
+---
+
+<div class="group">
+  <!-- Header -->
+  <div class="flex items-center justify-between mb-2">
+    <span class="font-medium
+      text-neutral-800 dark:text-neutral-100">
+      {title}
+    </span>
+
+    <span class="text-sm font-semibold
+      text-primary-500">
+      {percentage}%
+    </span>
+  </div>
+
+  <!-- Track -->
+  <div
+    class="relative h-3 overflow-hidden rounded-full
+    bg-neutral-200 dark:bg-neutral-800"
+  >
+    <!-- Glow -->
+    <div
+      class="absolute inset-0
+      opacity-0 group-hover:opacity-100
+      transition duration-500"
+    >
+      <div class="h-full bg-primary-500/20 blur-md"></div>
+    </div>
+
+    <!-- Fill -->
+    <div
+      class="relative h-full rounded-full
+  bg-gradient-to-r
+  from-primary-600
+  via-primary-500
+  to-primary-400
+  animate-fill"
+      style={`--bar-width:${percentage}%; width:0%;`}
+    >
+      <!-- Shimmer -->
+      <div
+        class="absolute inset-0
+  bg-[linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent)]
+  animate-shimmer"
+      >
+      </div>
+    </div>
+  </div>
+</div>

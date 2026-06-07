@@ -1,0 +1,86 @@
+---
+import ai900 from "@assets/certifications/ai900.jpg";
+import az900 from "@assets/certifications/az900.jpg";
+import dp900 from "@assets/certifications/dp900.jpg";
+
+import CertificationCard from "./CertificationCard.astro";
+
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const certifications = [
+  {
+    image: ai900,
+    title: t("certifications.items.0.title"),
+    description: t("certifications.items.0.description"),
+  },
+  {
+    image: az900,
+    title: t("certifications.items.1.title"),
+    description: t("certifications.items.1.description"),
+  },
+  {
+    image: dp900,
+    title: t("certifications.items.2.title"),
+    description: t("certifications.items.2.description"),
+  },
+];
+---
+
+<section class="mt-24">
+
+  <!-- Header -->
+  <div class="text-center mb-12">
+
+    <span
+      class="inline-flex items-center gap-2
+      px-4 py-2 rounded-full
+      bg-primary-100 dark:bg-primary-900/40
+      text-primary-700 dark:text-primary-300
+      text-sm font-medium"
+    >
+      🏆 Microsoft Certifications
+    </span>
+
+    <h2
+      class="mt-4
+      text-3xl md:text-4xl
+      font-title font-bold
+      text-neutral-900 dark:text-white"
+    >
+      {t("certifications.title")}
+    </h2>
+
+    <p
+      class="mt-4 max-w-3xl mx-auto
+      text-neutral-600 dark:text-neutral-400"
+    >
+      {t("certifications.description")}
+    </p>
+
+  </div>
+
+  <!-- Grid -->
+  <div
+    class="grid
+    grid-cols-1
+    md:grid-cols-2
+    xl:grid-cols-3
+    gap-8"
+  >
+
+    {
+      certifications.map((cert) => (
+        <CertificationCard
+          image={cert.image}
+          title={cert.title}
+          description={cert.description}
+        />
+      ))
+    }
+
+  </div>
+
+</section>

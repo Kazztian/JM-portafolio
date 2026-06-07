@@ -45,3 +45,34 @@
     --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
 
+/* ==========================
+   Skill Bars
+========================== */
+
+@keyframes fill {
+  from {
+    width: 0%;
+  }
+
+  to {
+    width: var(--bar-width);
+  }
+}
+
+.animate-fill {
+  animation: fill 1.2s ease-out forwards;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(250%);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2.5s linear infinite;
+}

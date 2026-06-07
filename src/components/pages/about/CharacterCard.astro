@@ -1,0 +1,173 @@
+---
+
+import { Image } from "astro:assets";
+import imgMe from "@assets/brand/me.png";
+
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<article class="relative max-w-4xl mx-auto">
+
+  <!-- Glow -->
+
+  <div
+    class="absolute inset-0 flex items-center justify-center -z-10"
+  >
+    <div
+      class="w-[450px] h-[450px] bg-primary-500/20 blur-[120px] rounded-full animate-pulse"
+    />
+  </div>
+
+  <div
+    class="group relative overflow-hidden rounded-3xl
+    border border-neutral-200 dark:border-neutral-800
+    bg-white/70 dark:bg-neutral-900/70
+    backdrop-blur-xl
+    shadow-xl
+    transition-all duration-500
+    hover:-translate-y-2
+    hover:shadow-2xl"
+  >
+
+
+<!-- Línea superior decorativa -->
+<div
+  class="absolute top-0 left-0 h-1 w-full
+  bg-gradient-to-r
+  from-primary-500
+  via-primary-400
+  to-primary-600"
+/>
+
+<div class="p-8">
+
+  <!-- Header -->
+  <div
+    class="flex flex-col md:flex-row
+    items-center md:items-start
+    gap-8"
+  >
+
+    <div class="relative shrink-0">
+
+      <div
+        class="absolute inset-0 rounded-full
+        bg-primary-500/30 blur-xl
+        group-hover:scale-110
+        transition duration-500"
+      />
+
+      <Image
+        src={imgMe}
+        alt={t("about.cardCharacter.header.name")}
+        class="relative w-36 h-36 object-cover
+        rounded-full
+        border-4 border-primary-500/30
+        shadow-xl"
+      />
+    </div>
+
+    <div class="flex-1 text-center md:text-left">
+
+      <h2
+        class="font-title text-3xl font-bold
+        text-neutral-900 dark:text-white"
+      >
+        {t("about.cardCharacter.header.name")}
+      </h2>
+
+      <p
+        class="text-primary-500 font-semibold mt-1"
+      >
+        {t("about.cardCharacter.header.role")}
+      </p>
+
+      <p
+        class="text-sm mt-1
+        text-neutral-500 dark:text-neutral-400"
+      >
+        📍 {t("about.cardCharacter.header.location")}
+      </p>
+
+      <p
+        class="mt-5 leading-relaxed
+        text-neutral-700 dark:text-neutral-300"
+      >
+        {t("about.cardCharacter.header.description")}
+      </p>
+
+    </div>
+
+  </div>
+
+  <!-- Stats -->
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2
+    gap-4 mt-8"
+  >
+
+    <div
+      class="rounded-2xl p-4
+      bg-neutral-50 dark:bg-neutral-800/50
+      border border-neutral-200 dark:border-neutral-700"
+    >
+      <p class="text-xs uppercase tracking-wider text-neutral-500">
+        {t("about.cardCharacter.mainStats.language")}
+      </p>
+
+      <p class="font-semibold text-lg text-primary-500">
+        {t("about.cardCharacter.mainStats.languageValue")}
+      </p>
+    </div>
+
+    <div
+      class="rounded-2xl p-4
+      bg-neutral-50 dark:bg-neutral-800/50
+      border border-neutral-200 dark:border-neutral-700"
+    >
+      <p class="text-xs uppercase tracking-wider text-neutral-500">
+        {t("about.cardCharacter.mainStats.framework")}
+      </p>
+
+      <p class="font-semibold text-lg text-primary-500">
+        {t("about.cardCharacter.mainStats.frameworkValue")}
+      </p>
+    </div>
+
+    <div
+      class="rounded-2xl p-4
+      bg-neutral-50 dark:bg-neutral-800/50
+      border border-neutral-200 dark:border-neutral-700"
+    >
+      <p class="text-xs uppercase tracking-wider text-neutral-500">
+        {t("about.cardCharacter.mainStats.skill")}
+      </p>
+
+      <p class="font-semibold text-lg text-primary-500">
+        {t("about.cardCharacter.mainStats.skillValue")}
+      </p>
+    </div>
+
+    <div
+      class="rounded-2xl p-4
+      bg-neutral-50 dark:bg-neutral-800/50
+      border border-neutral-200 dark:border-neutral-700"
+    >
+      <p class="text-xs uppercase tracking-wider text-neutral-500">
+        {t("about.cardCharacter.mainStats.tool")}
+      </p>
+
+      <p class="font-semibold text-lg text-primary-500">
+        {t("about.cardCharacter.mainStats.toolValue")}
+      </p>
+    </div>
+
+  </div>
+
+</div>
+
+  </div>
+</article>

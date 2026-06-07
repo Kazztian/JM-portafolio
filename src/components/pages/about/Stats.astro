@@ -1,0 +1,61 @@
+---
+
+import SkillBar from "./SkillBar.astro";
+
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section class="max-w-4xl mx-auto">
+
+  <div
+    class="rounded-3xl
+    border border-neutral-200 dark:border-neutral-800
+    bg-white/70 dark:bg-neutral-900/70
+    backdrop-blur-xl
+    p-6 md:p-8
+    shadow-xl"
+  >
+
+<h3
+  class="text-2xl font-title font-bold
+  text-neutral-900 dark:text-white
+  mb-8"
+>
+  Skills & Strengths
+</h3>
+
+<div class="space-y-6">
+
+  <SkillBar
+    title={t("about.stats.fullstack")}
+    percentage={90}
+  />
+
+  <SkillBar
+    title={t("about.stats.teamwork")}
+    percentage={88}
+  />
+
+  <SkillBar
+    title={t("about.stats.logic")}
+    percentage={92}
+  />
+
+  <SkillBar
+    title={t("about.stats.problemSolving")}
+    percentage={95}
+  />
+
+  <SkillBar
+    title={t("about.stats.creativity")}
+    percentage={85}
+  />
+
+</div>
+
+  </div>
+
+</section>

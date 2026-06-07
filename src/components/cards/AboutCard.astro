@@ -1,0 +1,82 @@
+---
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<article
+  class="group relative overflow-hidden
+
+  rounded-3xl
+
+  border border-neutral-200 dark:border-neutral-800
+
+  bg-white/70 dark:bg-neutral-900/70
+  backdrop-blur-xl
+
+  p-6 md:p-8
+
+  shadow-lg
+  hover:shadow-2xl
+
+  transition-all duration-500
+
+  hover:-translate-y-2"
+>
+
+  <!-- Glow -->
+  <div
+    class="absolute inset-0
+    opacity-0 group-hover:opacity-100
+    transition duration-500
+    pointer-events-none"
+  >
+    <div
+      class="absolute -top-20 -right-20
+      w-40 h-40
+      rounded-full
+      bg-primary-500/20
+      blur-3xl"
+    />
+  </div>
+
+  <!-- Línea superior -->
+  <div
+    class="absolute top-0 left-0
+    w-full h-1
+    bg-gradient-to-r
+    from-primary-600
+    via-primary-500
+    to-primary-400"
+  />
+
+  <!-- Título -->
+  <h2
+    class="relative z-10
+    text-2xl font-title font-bold
+    text-neutral-900 dark:text-white
+    mb-4"
+  >
+    {title}
+  </h2>
+
+  <!-- Contenido -->
+  <div
+    class="relative z-10
+
+    text-neutral-600 dark:text-neutral-400
+
+    leading-relaxed
+
+    [&>ul]:space-y-3
+    [&>ul]:list-disc
+    [&>ul]:pl-5
+
+    [&>ul>li]:marker:text-primary-500"
+    set:html={description}
+  />
+
+</article>
