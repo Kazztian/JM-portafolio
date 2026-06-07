@@ -163,9 +163,9 @@ const es = {
       skill: "Habilidad Destacada",
       tool: "Herramienta Favorita",
 
-      languageValue: "TypeScript",
-      frameworkValue: "Astro.js",
-      skillValue: "Resolución de Problemas",
+      languageValue: "Python 🐍",
+      frameworkValue: "Django 🐍",
+      skillValue: "Resolución de Problemas 🦾",
       toolValue: "VS Code ⚡",
     },
   },
@@ -179,14 +179,14 @@ const es = {
   },
 
   myHistory: {
-    title: "Mi Historia",
+    title: "Mi Historia 📖",
 
     description:
       "Mi interés por la programación nació de la curiosidad por comprender cómo funcionan las aplicaciones y plataformas que utilizamos diariamente. Con el tiempo he desarrollado proyectos enfocados en desarrollo web, backend, bases de datos e inteligencia artificial, fortaleciendo mis habilidades técnicas y mi capacidad para resolver problemas mediante software.",
   },
 
   myExperience: {
-    title: "Experiencia",
+    title: "Experiencia 💼",
 
     description: `
       <ul>
@@ -201,7 +201,7 @@ const es = {
   },
 
   myVision: {
-    title: "Visión",
+    title: "Visión 🚀",
 
     description:
       "Mi objetivo es crecer como ingeniero de software construyendo soluciones innovadoras que integren desarrollo web, inteligencia artificial y análisis de datos. Busco crear productos escalables, eficientes y enfocados en aportar valor real a las personas y organizaciones.",

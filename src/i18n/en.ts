@@ -169,11 +169,11 @@ const en = {
 
       tool: "Favorite Tool",
 
-      languageValue: "TypeScript",
+      languageValue: "Python 🐍",
 
-      frameworkValue: "Astro.js",
+      frameworkValue: "Django 🐍",
 
-      skillValue: "Problem Solving",
+      skillValue: "Problem Solving 🦾",
 
       toolValue: "VS Code ⚡",
     },
@@ -188,14 +188,14 @@ const en = {
   },
 
   myHistory: {
-    title: "My Story",
+    title: "My Story 📖",
 
     description:
       "My interest in programming started with the curiosity to understand how the applications and platforms we use every day work. Over time, I have developed projects focused on web development, backend systems, databases, and artificial intelligence, strengthening both my technical skills and my ability to solve problems through software.",
   },
 
   myExperience: {
-    title: "Experience",
+    title: "Experience 💼",
 
     description: `
       <ul>
@@ -210,7 +210,7 @@ const en = {
   },
 
   myVision: {
-    title: "Vision",
+    title: "Vision 🚀",
 
     description:
       "My goal is to grow as a software engineer by building innovative solutions that combine web development, artificial intelligence, and data analysis. I strive to create scalable, efficient products that deliver real value to people and organizations.",

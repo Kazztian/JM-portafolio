@@ -6,82 +6,70 @@ const t = useTranslations(lang);
 
 import CharacterCard from "./about/CharacterCard.astro";
 import Stats from "./about/Stats.astro";
-import Certifications from "./about/Certifications.astro";
 
 import AboutCard from "@components/cards/AboutCard.astro";
+
+import Certifications from "./about/Certifications.astro";
 ---
 
-<section class="relative container px-4 lg:px-0 py-20">
+<section class="relative container mx-auto px-4 pt-28 pb-20">
 
-  <!-- Glow Background -->
+  <!-- Glow -->
   <div
-    class="absolute top-20 left-1/2 -translate-x-1/2
-    w-[500px] h-[500px]
+    class="absolute top-40 left-1/2 -translate-x-1/2
+    w-[600px] h-[600px]
     bg-primary-500/10
-    blur-[120px]
+    blur-[150px]
     rounded-full
     -z-10"
   />
 
-  <div class="max-w-6xl mx-auto">
+  <div class="max-w-7xl mx-auto">
 
     <!-- Hero -->
     <header class="text-center mb-16">
 
-      <span
-        class="inline-flex items-center
-        px-4 py-2 mb-6
-        rounded-full
-        bg-primary-500/10
-        text-primary-500
-        border border-primary-500/20
-        text-sm font-medium"
-      >
-        Full Stack Developer
-      </span>
+  <h1
+    class="text-5xl lg:text-5xl
+    font-title font-bold
+    text-neutral-900 dark:text-white"
+  >
+    {t("about.title")}
+  </h1>
 
-      <h1
-        class="text-4xl md:text-5xl lg:text-6xl
-        font-title font-bold
-        text-neutral-900 dark:text-white
-        mb-6"
-      >
-        {t("about.title")}
-      </h1>
+  <p
+    class="mt-6 max-w-3xl mx-auto
+    text-lg leading-relaxed
+    text-neutral-600 dark:text-neutral-400"
+  >
+    {t("about.description")}
+  </p>
 
-      <p
-        class="max-w-3xl mx-auto
-        text-lg
-        text-neutral-600 dark:text-neutral-400
-        leading-relaxed"
-      >
-        {t("about.description")}
-      </p>
-
-    </header>
+</header>
 
     <!-- Character + Stats -->
     <div
       class="grid
-      grid-cols-1
-      lg:grid-cols-3
+      lg:grid-cols-[1.8fr_1fr]
       gap-8
-      mb-16"
+      items-start"
     >
+
       <CharacterCard />
 
       <Stats />
+
     </div>
 
-    <!-- Historia / Experiencia / Visión -->
+    <!-- Cards -->
     <div
       class="grid
-      grid-cols-1
       md:grid-cols-2
-      lg:grid-cols-3
+      xl:grid-cols-3
       gap-8
-      mb-20"
+      mt-16"
     >
+
       <AboutCard
         title={t("about.myHistory.title")}
         description={t("about.myHistory.description")}
@@ -96,10 +84,15 @@ import AboutCard from "@components/cards/AboutCard.astro";
         title={t("about.myVision.title")}
         description={t("about.myVision.description")}
       />
+
     </div>
 
-    <!-- Certificaciones -->
-    <Certifications />
+    <!-- Certifications -->
+    <div class="mt-24">
+
+      <Certifications />
+
+    </div>
 
   </div>
 
