@@ -1,8 +1,9 @@
 ---
 import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
 
 interface Props {
-  image: any;
+  image: ImageMetadata;
   title: string;
   description: string;
 }
@@ -12,22 +13,15 @@ const { image, title, description } = Astro.props;
 
 <article
   class="group relative overflow-hidden
-
   rounded-3xl
-
   border border-neutral-200
   dark:border-neutral-800
-
   bg-white/70
   dark:bg-neutral-900/70
-
   backdrop-blur-xl
-
   shadow-lg
   hover:shadow-2xl
-
   transition-all duration-500
-
   hover:-translate-y-3"
 >
 
@@ -61,50 +55,40 @@ const { image, title, description } = Astro.props;
 
   <!-- Imagen -->
   <div class="p-6 pb-0 relative z-10">
-
-    <div
-      class="overflow-hidden
-      rounded-2xl
-
-      border border-neutral-200
-      dark:border-neutral-800"
+    <button
+      class="cert-trigger block w-full cursor-zoom-in"
+      data-image={image.src}
+      data-title={title}
     >
-      <Image
-        src={image}
-        alt={title}
-        class="w-full
-
-        transition-transform
-        duration-700
-
-        group-hover:scale-105"
-      />
-    </div>
-
+      <div
+        class="overflow-hidden
+        rounded-2xl
+        border border-neutral-200
+        dark:border-neutral-800"
+      >
+        <Image
+          src={image}
+          alt={title}
+          class="w-full transition-transform duration-700 group-hover:scale-105"
+        />
+      </div>
+    </button>
   </div>
 
   <!-- Contenido -->
   <div class="p-6 relative z-10">
-
     <h3
       class="font-title
-      text-xl
-      font-bold
-
-      text-neutral-900
-      dark:text-white
-
+      text-xl font-bold
+      text-neutral-900 dark:text-white
       mb-3"
     >
       {title}
     </h3>
 
     <p
-      class="text-sm
-      leading-relaxed
-
-      text-neutral-600
-      dark:text-neutral-400"
+      class="text-sm leading-relaxed
+      text-neutral-600 dark:text-neutral-400"
     >
       {description}
     </p>
@@ -112,23 +96,14 @@ const { image, title, description } = Astro.props;
     <!-- Badge -->
     <div
       class="mt-5 inline-flex items-center gap-2
-
       px-3 py-1.5
-
       rounded-full
-
-      bg-primary-100
-      dark:bg-primary-900/30
-
-      text-primary-700
-      dark:text-primary-300
-
-      text-xs
-      font-medium"
+      bg-primary-100 dark:bg-primary-900/30
+      text-primary-700 dark:text-primary-300
+      text-xs font-medium"
     >
       🏆 Microsoft Certified
     </div>
-
   </div>
 
 </article>

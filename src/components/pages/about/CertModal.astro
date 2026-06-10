@@ -1,0 +1,89 @@
+---
+// Componente global - se renderiza una sola vez
+---
+
+<div
+  id="cert-modal"
+  class="fixed inset-0 z-[100]
+  hidden items-center justify-center
+  bg-black/70 backdrop-blur-md
+  opacity-0 transition-all duration-300"
+>
+  <div
+    id="cert-modal-content"
+    class="relative scale-95 transition-all duration-300"
+  >
+    <button
+      id="cert-close"
+      class="absolute -top-4 -right-4
+      w-10 h-10
+      rounded-full
+      bg-white text-black
+      shadow-lg
+      text-lg font-bold
+      flex items-center justify-center"
+    >
+      ✕
+    </button>
+
+    <img
+      id="cert-modal-image"
+      src=""
+      alt=""
+      class="w-[90vw] max-w-[900px]
+      rounded-2xl shadow-2xl"
+    />
+  </div>
+</div>
+
+<script>
+  const modal = document.getElementById("cert-modal");
+  const modalContent = document.getElementById("cert-modal-content");
+  const modalImage = document.getElementById("cert-modal-image") as HTMLImageElement;
+  const closeBtn = document.getElementById("cert-close");
+
+  if (!modal || !modalContent || !modalImage || !closeBtn) throw new Error("CertModal: elementos no encontrados");
+
+  const openModal = (src: string, alt: string) => {
+    modalImage.src = src;
+    modalImage.alt = alt;
+
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
+
+    setTimeout(() => {
+      modal.classList.remove("opacity-0");
+      modalContent.classList.remove("scale-95");
+      modalContent.classList.add("scale-100");
+    }, 10);
+  };
+
+  const closeModal = () => {
+    modal.classList.add("opacity-0");
+    modalContent.classList.remove("scale-100");
+    modalContent.classList.add("scale-95");
+
+    setTimeout(() => {
+      modal.classList.remove("flex");
+      modal.classList.add("hidden");
+    }, 300);
+  };
+
+  document.querySelectorAll(".cert-trigger").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const src = btn.getAttribute("data-image");
+      const title = btn.getAttribute("data-title");
+      if (src) openModal(src, title ?? "");
+    });
+  });
+
+  closeBtn.addEventListener("click", closeModal);
+
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeModal();
+  });
+</script>

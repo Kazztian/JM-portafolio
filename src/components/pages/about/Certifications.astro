@@ -4,6 +4,7 @@ import az900 from "@assets/certifications/az900.jpg";
 import dp900 from "@assets/certifications/dp900.jpg";
 
 import CertificationCard from "./CertificationCard.astro";
+import CertModal from "./CertModal.astro";
 
 import { getLangFromUrl, useTranslations } from "@i18n/utils";
 
@@ -33,16 +34,23 @@ const certifications = [
 
   <!-- Header -->
   <div class="text-center mb-12">
-
-    <span
-      class="inline-flex items-center gap-2
-      px-4 py-2 rounded-full
-      bg-primary-100 dark:bg-primary-900/40
-      text-primary-700 dark:text-primary-300
-      text-sm font-medium"
-    >
-      🏆 Microsoft Certifications
+  <span
+    class="inline-flex items-center gap-3
+    px-4 py-2 rounded-full
+    bg-primary-100 dark:bg-primary-900/40
+    text-primary-700 dark:text-primary-300
+    text-sm font-medium"
+  >
+    <!-- Microsoft Logo -->
+    <span class="grid grid-cols-2 gap-[2px]">
+      <span class="w-2.5 h-2.5 bg-blue-500"></span>
+      <span class="w-2.5 h-2.5 bg-green-500"></span>
+      <span class="w-2.5 h-2.5 bg-red-500"></span>
+      <span class="w-2.5 h-2.5 bg-yellow-400"></span>
     </span>
+
+    Microsoft Certifications
+  </span>
 
     <h2
       class="mt-4
@@ -59,7 +67,6 @@ const certifications = [
     >
       {t("certifications.description")}
     </p>
-
   </div>
 
   <!-- Grid -->
@@ -70,7 +77,6 @@ const certifications = [
     xl:grid-cols-3
     gap-8"
   >
-
     {
       certifications.map((cert) => (
         <CertificationCard
@@ -80,7 +86,9 @@ const certifications = [
         />
       ))
     }
-
   </div>
+
+  <!-- Modal global (una sola instancia) -->
+  <CertModal />
 
 </section>
