@@ -208,6 +208,37 @@ const es = {
   },
 },
 
+contact: {
+  title: "Contáctame",
+
+  description:
+    "¿Tienes una idea, una oportunidad laboral o simplemente quieres conversar sobre tecnología? Estaré encantado de leerte.",
+
+  form: {
+    name: "Nombre",
+    subject: "Asunto",
+    message: "Mensaje",
+    submit: "Enviar por WhatsApp",
+  },
+
+  validation: {
+    required: "Este campo es obligatorio.",
+  },
+
+  info: {
+    title: "Información de Contacto",
+
+    locationLabel: "Ubicación",
+    locationValue: "Colombia",
+
+    availabilityLabel: "Disponibilidad",
+    availabilityValue: "Disponible para oportunidades laborales",
+
+    whatsappLabel: "WhatsApp",
+    whatsappValue: "+57 320 220 1315",
+  },
+},
+
 certifications: {
   title: "Certificaciones",
 

@@ -217,6 +217,37 @@ const en = {
   },
 },
 
+contact: {
+  title: "Contact Me",
+
+  description:
+    "Do you have an idea, a job opportunity, or simply want to talk about technology? I'd be happy to hear from you.",
+
+  form: {
+    name: "Name",
+    subject: "Subject",
+    message: "Message",
+    submit: "Send via WhatsApp",
+  },
+
+  validation: {
+    required: "This field is required.",
+  },
+
+  info: {
+    title: "Contact Information",
+
+    locationLabel: "Location",
+    locationValue: "Colombia",
+
+    availabilityLabel: "Availability",
+    availabilityValue: "Available for job opportunities",
+
+    whatsappLabel: "WhatsApp",
+    whatsappValue: "+57 320 220 1315",
+  },
+},
+
 certifications: {
   title: "Certifications",
 
